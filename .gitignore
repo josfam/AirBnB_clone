@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # task test examples
-test_base_model.py
+examples/*
