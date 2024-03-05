@@ -9,6 +9,7 @@ from models.base_model import BaseModel as BM
 
 class TestBaseModel(unittest.TestCase):
     """Test cases for BaseModel behaviour"""
+
     def setUp(self):
         self.b = BM()
 
@@ -47,3 +48,25 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b_dict['created_at'], created_iso)
         self.assertEqual(b_dict['updated_at'], updated_iso)
 
+    def test_a_base_from_a_dict_is_a_base_instance(self):
+        b = self.b
+        b_dict = b.to_dict()
+        b1 = BM(b_dict)
+        self.assertIsInstance(b1, BM)
+
+    def test_a_base_from_a_dict_has_no__class__key(self):
+        b = self.b
+        b_dict = b.to_dict()
+        b1 = BM(b_dict)
+        self.assertTrue('__class__' not in b1.__dict__.keys())
+
+    def test_a_base_from_a_dict_turns_string_times_to_datetime_times(self):
+        b = self.b
+        self.assertIsInstance(b.created_at, datetime)
+        self.assertIsInstance(b.updated_at, datetime)
+        b_dict = b.to_dict()
+        self.assertIsInstance(b.created_at, str)
+        self.assertIsInstance(b.updated_at, str)
+        b1 = BM(b_dict)
+        self.assertIsInstance(b1.created_at, datetime)
+        self.assertIsInstance(b1.updated_at, datetime)
