@@ -9,11 +9,23 @@ from datetime import datetime as dt
 class BaseModel:
     """Defines all common attributes/methods for other classes"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Create a Base with a unique id, and info about when the object was
         first created, and last updated
         """
-        self.id = str(uuid.uuid4())
+        if kwargs and len(kwargs):
+            attrs = self.__dict__
+            attrs.update(**kwargs)
+            # turn created and updated times to normal datetime from iso
+            attrs['updated_at'] = dt.fromisoformat(attrs['updated_at'])
+            attrs['created_at'] = dt.fromisoformat(attrs['created_at'])
+            # delete the __class__ key from this instance
+            try:
+                del attrs['__class__']
+            except KeyError:
+                pass
+        else:
+            self.id = str(uuid.uuid4())
             self.created_at = dt.now()
             # may differ from creation slightly
             self.updated_at = dt.now()

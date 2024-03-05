@@ -161,3 +161,5 @@ cython_debug/
 
 # task test examples
 examples/*
+test_base_model.py
+test_base_model_dict.py
