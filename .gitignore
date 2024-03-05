@@ -163,3 +163,7 @@ cython_debug/
 examples/*
 test_base_model.py
 test_base_model_dict.py
+test_save_reload_base_model.py
+
+# json files
+file.json

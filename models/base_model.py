@@ -4,6 +4,7 @@
 
 import uuid
 from datetime import datetime as dt
+from . import storage
 
 
 class BaseModel:
@@ -19,8 +20,8 @@ class BaseModel:
             # turn created and updated times to normal datetime from iso
             attrs['updated_at'] = dt.fromisoformat(attrs['updated_at'])
             attrs['created_at'] = dt.fromisoformat(attrs['created_at'])
-            # delete the __class__ key from this instance
             try:
+                # delete the __class__ key from this instance
                 del attrs['__class__']
             except KeyError:
                 pass
@@ -29,6 +30,7 @@ class BaseModel:
             self.created_at = dt.now()
             # may differ from creation slightly
             self.updated_at = dt.now()
+            storage.new(self)
 
     def __str__(self):
         """Non-canonical, human-readable version of this `Base` object"""
@@ -41,6 +43,7 @@ class BaseModel:
         datetime
         """
         self.updated_at = dt.now()
+        storage.save()
 
     def to_dict(self):
         """Returns a dictionary containing all keys/values of __dict__ of the
@@ -48,8 +51,9 @@ class BaseModel:
         Creation and updated times are turned to iso format.
         """
         attrs = {}
-        for k,v in self.__dict__.items():  # do not affect the original dict
+        for k, v in self.__dict__.items():  # do not affect the original dict
             attrs.update({k: v})
+
         class_name = type(self).__name__
         attrs.update({'__class__': class_name})
         # change creation and updated times to iso format
