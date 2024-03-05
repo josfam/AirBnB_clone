@@ -35,10 +35,10 @@ class BaseModel:
         instance, and an additional __class__ key.
         Creation and updated times are turned to iso format.
         """
-        self_dict = self.__dict__
+        attrs = self.__dict__
         class_name = type(self).__name__
-        self_dict.update({'__class__': class_name})
+        attrs.update({'__class__': class_name})
         # change creation and updated times to iso format
-        self_dict['updated_at'] = self_dict['updated_at'].isoformat()
-        self_dict['created_at'] = self_dict['created_at'].isoformat()
-        return self_dict
+        attrs['updated_at'] = attrs['updated_at'].isoformat()
+        attrs['created_at'] = attrs['created_at'].isoformat()
+        return attrs
