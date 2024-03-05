@@ -47,7 +47,9 @@ class BaseModel:
         instance, and an additional __class__ key.
         Creation and updated times are turned to iso format.
         """
-        attrs = self.__dict__
+        attrs = {}
+        for k,v in self.__dict__.items():  # do not affect the original dict
+            attrs.update({k: v})
         class_name = type(self).__name__
         attrs.update({'__class__': class_name})
         # change creation and updated times to iso format
