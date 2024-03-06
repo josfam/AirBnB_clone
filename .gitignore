@@ -167,3 +167,6 @@ test_save_reload_base_model.py
 
 # json files
 file.json
+
+# code editor
+.vscode/*
