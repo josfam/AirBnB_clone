@@ -44,9 +44,16 @@ class FileStorage:
         file does not exist
         """
         json_file = FileStorage.__file_path
+        FileStorage.__objects = dict()
         if os.path.exists(json_file):
+            # delayed import of BaseModel to work around circular import error
+            from models.base_model import BaseModel
+
             with open(json_file, 'r', encoding='utf-8') as f:
-                FileStorage.__objects = json.load(f)
+                json_dict = json.load(f)
+
+                for key, attrs in json_dict.items():
+                    FileStorage.__objects.update({key: BaseModel(**attrs)})
         else:
             # do nothing
             pass
