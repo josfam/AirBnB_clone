@@ -21,7 +21,7 @@ class FileStorage:
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id"""
         key = '{}.{}'.format(type(obj).__name__, obj.id)
-        value = obj.to_dict()
+        value = obj
         new_dict = {key: value}
         self.all().update(new_dict)
 
