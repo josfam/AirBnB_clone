@@ -5,6 +5,8 @@
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel as BM
+from models import storage
+import os
 
 
 class TestBaseModel(unittest.TestCase):
@@ -12,6 +14,9 @@ class TestBaseModel(unittest.TestCase):
 
     def setUp(self):
         self.b = BM()
+
+    def tearDown(self):
+        storage.all().clear()
 
     def test_a_new_base_must_have_a_unique_id(self):
         b = self.b
@@ -30,6 +35,9 @@ class TestBaseModel(unittest.TestCase):
         first_creation = b.created_at
         first_update = b.updated_at
         b.save()
+        # remove the generated json file
+        if os.path.exists("file.json"):
+            os.remove("file.json")
         self.assertEqual(first_creation, b.created_at)
         self.assertLessEqual(first_update, b.updated_at)
 
