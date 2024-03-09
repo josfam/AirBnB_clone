@@ -90,12 +90,12 @@ class HBNBCommand(cmd.Cmd):
             return
 
         # only print this specific type of object
-        all_instances = [
+        specific_instances = [
             obj.__str__()
             for key, obj in storage.all().items()
             if key.split('.')[0] == to_print
         ]
-        print(all_instances)
+        print(specific_instances)
 
     def do_quit(self, line):
         """Quit command to exit the program"""
