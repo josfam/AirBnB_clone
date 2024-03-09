@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
         if len(line) == 0:
             print('** class name missing **')
             return
-        if len(line) == 1:
+        if len(command) == 1:
             print("** instance id missing **")
             return
         to_show = command[0]
@@ -57,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         if len(line) == 0:
             print('** class name missing **')
             return
-        if len(line) == 1:
+        if len(command) == 1:
             print("** instance id missing **")
             return
         to_destroy = command[0]
