@@ -35,14 +35,13 @@ class HBNBCommand(cmd.Cmd):
         if len(line) == 0:
             print('** class name missing **')
             return
-        if len(command) == 1:
-            print("** instance id missing **")
-            return
         to_show = command[0]
         if to_show not in HBNBCommand.__legal_objs:
             print("** class doesn't exist **")
             return
-
+        if len(command) == 1:
+            print("** instance id missing **")
+            return
         obj_id = command[1]
         key = '{}.{}'.format(to_show, obj_id)  # predefined key format
         if key in storage.all():
