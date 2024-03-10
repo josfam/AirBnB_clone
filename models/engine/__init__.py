@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """File storage engine for storing objects that are used throughout this
 project.
 Ideally, storage is instantiated when the program is run, and is
