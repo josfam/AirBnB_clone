@@ -4,6 +4,7 @@
 
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -12,7 +13,10 @@ class HBNBCommand(cmd.Cmd):
 
     # custom prompt
     prompt = '(hbnb) '
-    __legal_objs = {'BaseModel': BaseModel}
+    __legal_objs = {
+        'BaseModel': BaseModel,
+        'User': User,
+        }
 
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file)
