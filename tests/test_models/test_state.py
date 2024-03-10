@@ -21,7 +21,7 @@ class TestStorage(unittest.TestCase):
         storage.all().clear()
 
     def test_State_is_a_subclass_of_BaseModel(self):
-        """The User class must inherit from the BaseModel class"""
+        """The State class must inherit from the BaseModel class"""
         parent = State.__base__.__name__
         self.assertEqual(parent, 'BaseModel')
 
