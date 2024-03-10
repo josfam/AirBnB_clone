@@ -4,7 +4,7 @@
 
 import os
 import cmd
-import sys
+import shlex
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -33,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file)
         and prints the id"""
-        command = line.split()
+        command = shlex.split(line)
 
         if len(line) == 0:
             print('** class name missing **')
@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """Prints the string representation of an instance based on the
         class name and id"""
-        command = line.split()
+        command = shlex.split(line)
         if len(line) == 0:
             print('** class name missing **')
             return
@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id, and updates
         the json file to reflect the deletion"""
-        command = line.split()
+        command = shlex.split(line)
         if len(line) == 0:
             print('** class name missing **')
             return
@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
             print(all_instances)
             return
 
-        to_print = line.split()[0]
+        to_print = shlex.split(line)[0]
         if to_print not in HBNBCommand.__legal_objs:
             print("** class doesn't exist **")
             return
@@ -126,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
         """Updates an instance based on the class name and id by adding or
         updating attribute. Saves the changes to the JSON file.
         """
-        command = line.split()
+        command = shlex.split(line)
         if len(line) == 0:
             print('** class name missing **')
             return
@@ -159,7 +159,7 @@ class HBNBCommand(cmd.Cmd):
         new_value = command[3]
         # update the attribute and update the json file
         obj = storage.all()[obj_key]
-        obj.__dict__[obj_attr] = new_value.strip('"')  # remove double quotes
+        obj.__dict__[obj_attr] = new_value
         storage.all().update({obj_key: obj})
         storage.save()
 
