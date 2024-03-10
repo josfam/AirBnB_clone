@@ -49,11 +49,18 @@ class FileStorage:
             # delayed import of BaseModel to work around circular import error
             from models.base_model import BaseModel
 
+            legal_classes = {
+                'BaseModel': BaseModel,
+            }
             with open(json_file, 'r', encoding='utf-8') as f:
                 json_dict = json.load(f)
 
                 for key, attrs in json_dict.items():
-                    FileStorage.__objects.update({key: BaseModel(**attrs)})
+                    # dynamically determine this object's class before creating
+                    # it
+                    class_type = attrs['__class__']
+                    obj = legal_classes[class_type](**attrs)
+                    FileStorage.__objects.update({key: obj})
         else:
             # do nothing
             pass
