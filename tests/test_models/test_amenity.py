@@ -48,7 +48,7 @@ class TestStorage(unittest.TestCase):
         a_dict = a.to_dict()
         self.assertEqual(a_dict['__class__'], 'Amenity')
 
-    def test_a_user_instance_is_printed_correctly(self):
+    def test_a_state_instance_is_printed_correctly(self):
         """__str__ should return the correct format for a Amenity"""
         a = self.a
         expected_format = '[{}] ({}) {}'.format('Amenity', a.id, a.__dict__)
