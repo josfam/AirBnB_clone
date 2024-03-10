@@ -2,7 +2,9 @@
 
 """The entry point of the command interpreter"""
 
+import os
 import cmd
+import sys
 from models.base_model import BaseModel
 from models.user import User
 from models import storage
@@ -16,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
     __legal_objs = {
         'BaseModel': BaseModel,
         'User': User,
-        }
+    }
 
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file)
@@ -163,6 +165,15 @@ class HBNBCommand(cmd.Cmd):
         """Causes nothing to be executed if nothing is provided
         at the prompt"""
         pass
+
+    def postloop(self):
+        """Routines to perform after every loop in the program"""
+        # print a newline after execution of the command, if the console
+        # program was called in non-interactive mode
+        if not os.isatty(0):
+            print()
+        else:
+            pass
 
 
 if __name__ == '__main__':
