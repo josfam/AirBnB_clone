@@ -157,11 +157,28 @@ class HBNBCommand(cmd.Cmd):
             return
 
         new_value = command[3]
+        new_value = self.get_real_datatype(new_value)
+
         # update the attribute and update the json file
         obj = storage.all()[obj_key]
         obj.__dict__[obj_attr] = new_value
         storage.all().update({obj_key: obj})
         storage.save()
+
+    def get_real_datatype(self, value):
+        """Returns the value, after it has been transformed into its
+        most natural datatype. If no transformation was made, then the value
+        is returned in its original string form
+        """
+        real_type = value
+        try:
+            real_type = int(value)
+        except ValueError:
+            try:
+                real_type = float(value)
+            except ValueError:
+                pass
+        return real_type
 
     def do_quit(self, line):
         """Quit command to exit the program"""
