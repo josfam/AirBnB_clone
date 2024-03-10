@@ -35,7 +35,7 @@ class BaseModel:
     def __str__(self):
         """Non-canonical, human-readable version of this `Base` object"""
         return '[{}] ({}) {}'.format(
-            type(self).__name__, self.id, self.__dict__
+            self.__class__.__name__, self.id, self.__dict__
         )
 
     def save(self):
