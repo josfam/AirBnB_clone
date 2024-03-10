@@ -18,15 +18,18 @@ class HBNBCommand(cmd.Cmd):
         """Creates a new instance of BaseModel, saves it (to the JSON file)
         and prints the id"""
         command = line.split()
-        to_create = command[0]
+
         if len(line) == 0:
             print('** class name missing **')
-        elif to_create not in HBNBCommand.__legal_objs:
+            return
+        to_create = command[0]
+        if to_create not in HBNBCommand.__legal_objs:
             print("** class doesn't exist **")
-        else:
-            obj = HBNBCommand.__legal_objs[to_create]()
-            obj.save()
-            print(obj.id)
+            return
+
+        obj = HBNBCommand.__legal_objs[to_create]()
+        obj.save()
+        print(obj.id)
 
     def do_show(self, line):
         """Prints the string representation of an instance based on the
