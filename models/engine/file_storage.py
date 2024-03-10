@@ -48,9 +48,11 @@ class FileStorage:
         if os.path.exists(json_file):
             # delayed import of BaseModel to work around circular import error
             from models.base_model import BaseModel
+            from models.user import User
 
             legal_classes = {
                 'BaseModel': BaseModel,
+                'User': User,
             }
             with open(json_file, 'r', encoding='utf-8') as f:
                 json_dict = json.load(f)
