@@ -97,6 +97,48 @@ class HBNBCommand(cmd.Cmd):
         ]
         print(specific_instances)
 
+    def do_update(self, line):
+        """Updates an instance based on the class name and id by adding or
+        updating attribute. Saves the changes to the JSON file.
+        """
+        command = line.split()
+        if len(line) == 0:
+            print('** class name missing **')
+            return
+
+        to_update = command[0]
+        if to_update not in HBNBCommand.__legal_objs:
+            print("** class doesn't exist **")
+            return
+
+        if len(command) == 1:
+            print('** instance id missing **')
+            return
+
+        obj_id = command[1]
+        # check that the id exists
+        obj_key = '{}.{}'.format(to_update, obj_id)
+        if obj_key not in storage.all().keys():
+            print('** no instance found **')
+            return
+
+        if len(command) == 2:
+            print('** attribute name missing **')
+            return
+
+        obj_attr = command[2]
+
+        if len(command) == 3:
+            print('** value missing **')
+            return
+
+        new_value = command[3]
+        # update the attribute and update the json file
+        obj = storage.all()[obj_key]
+        obj.__dict__[obj_attr] = new_value.strip('"')  # remove double quotes
+        storage.all().update({obj_key: obj})
+        storage.save()
+
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
