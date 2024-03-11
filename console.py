@@ -45,6 +45,9 @@ class HBNBCommand(cmd.Cmd):
             if action == 'count()':
                 self.count_instances(class_type)
                 return ''
+            if action.startswith('show('):
+                obj_id = action[6:-2]
+                return 'show {} {}'.format(class_type, obj_id)
         return line
 
     def do_create(self, line):
