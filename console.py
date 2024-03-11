@@ -48,6 +48,9 @@ class HBNBCommand(cmd.Cmd):
             if action.startswith('show('):
                 obj_id = action[6:-2]
                 return 'show {} {}'.format(class_type, obj_id)
+            if action.startswith('destroy('):
+                obj_id = action[9:-2]
+                return 'destroy {} {}'.format(class_type, obj_id)
         return line
 
     def do_create(self, line):
