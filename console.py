@@ -30,6 +30,20 @@ class HBNBCommand(cmd.Cmd):
         'Review': Review,
     }
 
+    def precmd(self, line):
+        """Routines that pre-process the line, before it is passed on to the
+        normal processing
+        """
+        if '.' not in line:
+            return line
+
+        parts = line.split('.')
+        if len(parts) == 2:  # the format is Class.action
+            class_type, action = parts
+            if action == 'all()':
+                return 'all {}'.format(class_type)
+        return line
+
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file)
         and prints the id"""
