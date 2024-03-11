@@ -42,6 +42,9 @@ class HBNBCommand(cmd.Cmd):
             class_type, action = parts
             if action == 'all()':
                 return 'all {}'.format(class_type)
+            if action == 'count()':
+                self.count_instances(class_type)
+                return ''
         return line
 
     def do_create(self, line):
@@ -60,6 +63,17 @@ class HBNBCommand(cmd.Cmd):
         obj = HBNBCommand.__legal_objs[to_create]()
         obj.save()
         print(obj.id)
+
+    def count_instances(self, line):
+        """Counts the number of instances of this class that exist in the
+        storage engine
+        """
+        count = 0
+        for k, v in storage.all().items():
+            this_class = k.split('.')[0]
+            if this_class == line:
+                count += 1
+        print(count)
 
     def do_show(self, line):
         """Prints the string representation of an instance based on the
