@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
         return line
 
     def do_create(self, line):
-        """Creates a new instance of BaseModel, saves it (to the JSON file)
+        """Creates a new instance of an object, saves it (to the JSON file)
         and prints the id"""
         command = shlex.split(line)
 
