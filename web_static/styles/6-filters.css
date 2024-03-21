@@ -65,6 +65,8 @@
 	padding-bottom: 30px;
 	padding-right: 30px;
 	width: 250px;
+
+	z-index: 1; /* To properly overlap the places cards */
 }
 
 .amenities:hover .popover ul {

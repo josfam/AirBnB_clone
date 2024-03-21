@@ -49,6 +49,7 @@
 	position: absolute;
 	top: -10px;
 	right: 0px;
+	z-index: -1; /* To be properly overlapped by the dropdowns from states and amenities */
 }
 
 /* Grouping of pricing circle and title of the place */
