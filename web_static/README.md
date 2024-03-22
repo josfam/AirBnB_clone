@@ -26,7 +26,7 @@
 
 ### 6. It's (h)over
 
-[Output for 6. It's (h)over](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/6.ItsHover.mp4)
+![Output for 6. It's (h)over](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/6.ItsHover.gif)
 
 ---
 
@@ -38,4 +38,4 @@
 
 ### 8. More details
 
-[Output for 8. More details](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/8.MoreDetails.mp4)
+[Output for 8. More details](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/8.MoreDetails.gif)
