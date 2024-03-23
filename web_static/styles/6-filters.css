@@ -27,7 +27,7 @@
 	opacity: 0.9;
 }
 
-.locations, .amenities {
+.locations, .filters .amenities {
 	height: 100%;
 	width: 25%;
 
@@ -42,19 +42,19 @@
 	border-right: 1px solid #DDDDDD;
 }
 
-.locations > h3, .amenities > h3 {
+.locations > h3, .filters .amenities > h3 {
 	font-weight: 600;
 	margin: 0px 0px 0px 40px;
 }
 
-.locations > h4, .amenities > h4 {
+.locations > h4, .filters .amenities > h4 {
 	font-weight: 400;
 	font-size: 14px;
 	margin: 0px 0px 0px 40px;
 }
 
 /* styling for amenities and locations drop-down menus */
-.amenities .popover ul, .locations .popover > ul {
+.filters .amenities .popover ul, .locations .popover > ul {
 	display: none;
 	background-color: #FAFAFA;
 	border: 1px solid #DDDDDD;
@@ -69,7 +69,7 @@
 	z-index: 1; /* To properly overlap the places cards */
 }
 
-.amenities:hover .popover ul {
+.filters .amenities:hover .popover ul {
 	display: block;
 }
 
