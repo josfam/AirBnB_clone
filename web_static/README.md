@@ -43,3 +43,8 @@
 ### 9. Full details
 
 ![Output for 9. Full details](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/9.FullDetails.gif)
+
+### 10. Flex
+
+Showing Chrome's inspector and, by extension, flexible rectangles of the article(s)
+![Output for 10. Flex](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/10.Flex.gif)
