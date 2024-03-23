@@ -38,4 +38,8 @@
 
 ### 8. More details
 
-[Output for 8. More details](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/8.MoreDetails.gif)
+![Output for 8. More details](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/8.MoreDetails.gif)
+
+### 9. Full details
+
+![Output for 9. Full details](https://raw.githubusercontent.com/josfam/ALX-screenshots/main/0x01.AirBnBClone-WebStatic/9.FullDetails.gif)
