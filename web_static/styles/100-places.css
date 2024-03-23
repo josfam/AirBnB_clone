@@ -1,0 +1,187 @@
+.places {
+	display: flex;
+	/* places on top, articles on the bottom */
+	flex-direction: column;
+
+	/* so one can scroll past the last article */
+	margin-bottom: 100px;
+}
+
+.places h1 {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-size: 30px;
+}
+
+.places article {
+	width: 390px;
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid #FF5A5F;
+	border-radius: 4px;
+	/* min-height: 350px; /* each card has a fixed height */
+}
+
+.places article .title-price > h2 {
+	font-size: 30px;
+	text-align: center;
+	margin-top: auto;
+}
+
+.article-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center; /* center the lone 'A suite'*/
+}
+
+/* price by night circle */
+.price_by_night {
+	color: #FF5A5F;
+	border: 2px solid #FF5A5F;
+	border-radius: 100px; /* rounded */
+	min-width: 60px;
+	height: 60px;
+	font-size: 30px;
+	padding: 8px 2px 8px 2px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* position the price */
+	position: absolute;
+	top: -10px;
+	right: 0px;
+	z-index: -1; /* To be properly overlapped by the dropdowns from states and amenities */
+}
+
+/* Grouping of pricing circle and title of the place */
+.title-price {
+	position: relative;
+	display: block;
+	justify-content: center;
+}
+
+.information {
+	height: 80px;
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+	display: flex;
+	justify-content: space-around;
+}
+
+.max_guest, .number_rooms, .number_bathrooms {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100px;
+	height: auto;
+}
+
+.guest-icon,
+.bedroom-icon,
+.bathroom-icon {
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: 6px; /* vertical positioning */
+	background-size: contain;
+	/* background image area */
+	height: 60px;
+	width: 60px;
+}
+
+.guest-icon {
+	background-image: url(../images/icon_group.png);
+}
+
+.bedroom-icon {
+	background-image: url(../images/icon_bed.png);
+}
+
+.bathroom-icon {
+	background-image: url(../images/icon_bath.png);
+}
+
+/* styling for the guest number */
+.max_guest p, .number_rooms p, .number_bathrooms p{
+	margin-top: 0px;
+	margin-bottom: 6px;
+}
+
+.user-description {
+	display: flex;
+	flex-direction: column;
+}
+
+.user {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+/* Amenities list */
+.places .amenities, .places .reviews{
+	margin-top: 40px;
+}
+
+.places .amenities h2, .places .reviews h2
+{
+	font-size: 16px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.places .amenities ul, .places .reviews ul
+{
+	list-style-type: none;
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+.places .amenities ul
+{
+	row-gap: 10px;
+}
+
+.amenity-tv-icon,
+.amenity-wifi-icon,
+.amenity-pets-icon,
+.amenity-washing-machine-icon,
+.amenity-cooker-icon,
+.amenity-iron-icon
+{
+	width: 30px;
+	height: 30px;
+	/* background-color: aqua; */
+	background-size: contain;
+	display: inline-block;
+}
+
+.places .amenities ul li {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+}
+
+.amenity-tv-icon {
+	background-image: url(../images/icon_tv.png);
+}
+
+.amenity-wifi-icon {
+	background-image: url(../images/icon_wifi.png);
+}
+
+.amenity-pets-icon {
+	background-image: url(../images/icon_pets.png);
+}
+
+.amenity-washing-machine-icon {
+	background-image: url(../images/icon_washing-machine.png);
+}
+
+.amenity-cooker-icon {
+	background-image: url(../images/icon_cooker.png);
+}
+
+.amenity-iron-icon {
+	background-image: url(../images/icon_iron.png);
+}
